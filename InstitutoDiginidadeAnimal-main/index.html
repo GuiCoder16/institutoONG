@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Integridade Animal</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+</head>
+<body>
+<header>
+    <img src="./assets/LogoPrimaria.png" alt="Logo Instituto Integridade Animal" class="logo">
+    <nav>
+        <ul>
+            <li><a href="index.html" style="background-color: #0d5f418c; color: #fff;"><i class="fas fa-home"></i> Início</a></li>
+            <div class="separador"></div>
+            <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+            <div class="separador"></div>
+            <li><a href="adocao.html"><i class="fas fa-paw"></i> Adoção</a></li>
+            <div class="separador"></div>
+            <li><a href="como-ajudar.html"><i class="fas fa-hand-holding-heart"></i> Como ajudar</a></li>
+            <div class="separador"></div>
+            <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="space-header"></div>
+<section class="carrossel">
+    <div class="slides">
+        <div class="slide active">
+            <img src="./assets/img01.png" alt="">
+            <div class="overlay"></div>
+            <div class="conteudo">
+                <h2>Adote, ame e transforme uma vida</h2>
+                <p>Conheça nossos amigos que esperam por um lar cheio de carinho.</p>
+                <div class="botoes">
+                    <a href="adocao.html" class="btn btn-primary">Adotar agora</a>
+                    <a href="sobre.html" class="btn btn-secundario">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="./assets/img02.png" alt="">
+            <div class="overlay"></div>
+            <div class="conteudo">
+                <h2>Juntos pela causa animal</h2>
+                <p>Participe como voluntário e faça a diferença.</p>
+                <div class="botoes">
+                    <a href="adocao.html" class="btn btn-primary">Seja voluntário</a>
+                    <a href="como-ajudar.html" class="btn btn-secundario">Doar agora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="next"><i class="fas fa-chevron-right"></i></button>
+</section>
+
+<section class="institucional">
+    <h2>Nossa Essência</h2>
+    <div class="cards-container">
+        <div class="card">
+            <i class="fas fa-bullseye"></i>
+            <h3>Missão</h3>
+            <p>Promover a proteção e o bem-estar animal, resgatando, cuidando e encontrando lares responsáveis.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-eye"></i>
+            <h3>Visão</h3>
+            <p>Construir uma sociedade mais consciente, onde todo animal tenha direito a respeito e dignidade.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-heart"></i>
+            <h3>Valores</h3>
+            <p>Compromisso, amor, ética, responsabilidade social e respeito a todas as formas de vida.</p>
+        </div>
+    </div>
+</section>
+
+<section class="adocao">
+    <h2>Animais para Adoção</h2>
+    <div class="animais-container">
+        <div class="animal-card">
+            <img src="./assets/dog1.jpeg" alt="Cachorro para adoção">
+            <h3>Mel</h3>
+            <p>2 anos • Alegre e brincalhão</p>
+            <a href="adocao.html" class="btn-adotar">Adotar</a>
+        </div>
+        <div class="animal-card">
+            <img src="./assets/cat1.jpeg" alt="Gato para adoção">
+            <h3>Luna</h3>
+            <p>1 ano • Carinhosa e dócil</p>
+            <a href="adocao.html" class="btn-adotar">Adotar</a>
+        </div>
+        <div class="animal-card">
+            <img src="./assets/dog2.jpg" alt="Cachorro para adoção">
+            <h3>Rex</h3>
+            <p>3 anos • Protetor e companheiro</p>
+            <a href="adocao.html" class="btn-adotar">Adotar</a>
+        </div>
+        <div class="animal-card">
+            <img src="./assets/cat2.jpeg" alt="Gato para adoção">
+            <h3>Mimi</h3>
+            <p>6 meses • Brincalhona e curiosa</p>
+            <a href="adocao.html" class="btn-adotar">Adotar</a>
+        </div>
+    </div>
+</section>
+
+
+<script src="carrossel.js"></script>
+</body>
+</html>
