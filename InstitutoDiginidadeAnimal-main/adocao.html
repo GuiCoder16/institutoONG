@@ -1,12 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Adoção - Instituto Integridade Animal</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <style>
+        :root { --verde: #0d5f41; --accent: #f5a623; --card-bg: #fff; }
+
+        body { background: linear-gradient(180deg,#f6fbf8 0%, #ffffff 45%); }
+
+        .hero-adocao {
+            background: linear-gradient(90deg, rgba(13,95,65,0.95), rgba(10,74,51,0.95)), url('./assets/img01.png') center/cover no-repeat;
+            color: #fff;
+            padding: 56px 20px;
+            text-align: center;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .hero-adocao h1 { font-size: 2.2rem; margin-bottom: 8px; }
+        .hero-adocao p { max-width: 900px; margin: 0 auto 18px; opacity: 0.95; }
+
+        .container { max-width: 1100px; margin: 28px auto; padding: 0 20px; }
+
+        .filters {
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            align-items:center;
+            margin-bottom:18px;
+        }
+        .filters .search {
+            flex:1;
+            display:flex;
+            gap:8px;
+            align-items:center;
+            background:#fff;
+            padding:8px;
+            border-radius:10px;
+            box-shadow:0 6px 18px rgba(10,10,10,0.04);
+        }
+        .filters input[type="text"], .filters select {
+            border:0; outline:none; padding:10px; font-size:0.95rem; flex:1; background:transparent;
+        }
+        .filters .count {
+            color:#666; font-weight:700;
+        }
+
+        .grid-animais {
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap:18px;
+        }
+
+        .animal-card {
+            background: linear-gradient(180deg,#fff,#fbfff9);
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow: 0 12px 30px rgba(10,10,10,0.06);
+            display:flex;
+            flex-direction:column;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+        .animal-card:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(10,10,10,0.12); }
+
+        .animal-card .thumb {
+            width:100%;
+            height:180px;
+            background-size:cover;
+            background-position:center;
+        }
+        .animal-card .body {
+            padding:14px;
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+            flex:1;
+        }
+        .animal-card h3 { margin:0; color:var(--verde); }
+        .animal-card p { margin:0; color:#555; font-size:0.95rem; line-height:1.35; }
+
+        .animal-meta {
+            display:flex;
+            gap:12px;
+            color:#666;
+            font-size:0.9rem;
+            align-items:center;
+            margin-top:auto;
+        }
+        .animal-actions {
+            display:flex;
+            gap:8px;
+            margin-top:12px;
+        }
+        .btn-adotar {
+            background:var(--verde); color:#fff; padding:10px 12px; border-radius:8px; text-decoration:none;
+            box-shadow: 0 8px 20px rgba(13,95,65,0.16);
+        }
+        .btn-saber {
+            background:transparent; color:var(--verde); padding:8px 10px; border-radius:8px; border:1px solid #e6e6e6; text-decoration:none;
+        }
+
+        .empty-note { text-align:center; color:#666; padding:18px; background:#fff; border-radius:10px; box-shadow: 0 6px 18px rgba(10,10,10,0.03); }
+
+        @media (max-width:720px){
+            .hero-adocao h1{font-size:1.6rem;}
+            .animal-card .thumb{height:160px;}
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -26,48 +129,124 @@
     </nav>
 </header>
 <div class="space-header"></div>
-<section class="adocao-info">
-    <h2>Como Adotar</h2>
-<br>
-    <p>Adotar um animal é um ato de amor e responsabilidade. Aqui estão os passos que você deve seguir para adotar um dos nossos amigos peludos:</p>
-    <ol style="text-align: center;">
-        <li>Visite nosso abrigo e conheça os animais disponíveis.</li>
-        <li>Preencha um formulário de adoção com suas informações.</li>
-        <li>Participe de uma entrevista para garantir que você e o animal são compatíveis.</li>
-        <li>Após a aprovação, você poderá levar seu novo amigo para casa!</li>
-    </ol>
-    <p>Estamos aqui para ajudar em cada passo do caminho. Se você tiver alguma dúvida, não hesite em nos contatar!</p>
-<br><br><br><br>
+
+<section class="hero-adocao">
+    <h1>Encontre um novo amigo</h1>
+    <p>Conheça nossos animais disponíveis para adoção. Todos são avaliados, vacinados e castrados quando possível — prontos para um lar cheio de amor.</p>
 </section>
-<section class="animais-adocao">
-    <h2 style="text-align: center;">Animais Disponíveis para Adoção:</h2><br>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center;" class="animais-container">
-        <div class="animal-card">
-            <img src="./assets/dog1.jpeg" alt="Cachorro para adoção">
-            <h3>Mel</h3>
-            <p>2 anos • Alegre e brincalhão</p>
-            <a href="#" class="btn-adotar">Adotar</a>
+
+<main class="container">
+    <div class="filters" aria-hidden="false">
+        <div class="search">
+            <i class="fas fa-search" style="color:#9aa;"><span class="sr-only">Pesquisar</span></i>
+            <input type="text" id="search" placeholder="Pesquisar por nome, idade ou raça">
         </div>
-        <div class="animal-card">
-            <img src="./assets/cat1.jpeg" alt="Gato para adoção">
-            <h3>Luna</h3>
-            <p>1 ano • Carinhosa e dócil</p>
-            <a href="#" class="btn-adotar">Adotar</a>
-        </div>
-        <div class="animal-card">
-            <img src="./assets/dog2.jpg" alt="Cachorro para adoção">
-            <h3>Rex</h3>
-            <p>3 anos • Protetor e companheiro</p>
-            <a href="#" class="btn-adotar">Adotar</a>
-        </div>
-        <div class="animal-card">
-            <img src="./assets/cat2.jpeg" alt="Gato para adoção">
-            <h3>Mimi</h3>
-            <p>6 meses • Brincalhona e curiosa</p>
-            <a href="#" class="btn-adotar">Adotar</a>
-        </div>
+        <select id="type">
+            <option value="">Todos</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+        </select>
+        <div class="count" id="count">4 animais</div>
     </div>
-</section>
-<script src="carrossel.js"></script>
+
+    <div class="grid-animais" id="grid">
+        <article class="animal-card" data-type="cachorro">
+            <div class="thumb" style="background-image:url('./assets/dog1.jpeg');"></div>
+            <div class="body">
+                <h3>Mel <small style="font-size:0.85rem;color:#999;">• 2 anos</small></h3>
+                <p>Doce e brincalhona, adora passeios e carinho. Boa com crianças.</p>
+                <div class="animal-meta">
+                    <span><i class="fas fa-paw"></i> Porte: Médio</span>
+                    <span><i class="fas fa-venus-mars"></i> Fêmea</span>
+                </div>
+                <div class="animal-actions">
+                    <a class="btn-adotar" href="contato.html#adotar">Quero adotar</a>
+                    <a class="btn-saber" href="contato.html">Mais info</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="animal-card" data-type="gato">
+            <div class="thumb" style="background-image:url('./assets/cat1.jpeg');"></div>
+            <div class="body">
+                <h3>Luna <small style="font-size:0.85rem;color:#999;">• 1 ano</small></h3>
+                <p>Carinhosa e tranquila, ideal para apartamentos e lares calmos.</p>
+                <div class="animal-meta">
+                    <span><i class="fas fa-paw"></i> Porte: Pequeno</span>
+                    <span><i class="fas fa-venus-mars"></i> Fêmea</span>
+                </div>
+                <div class="animal-actions">
+                    <a class="btn-adotar" href="contato.html#adotar">Quero adotar</a>
+                    <a class="btn-saber" href="contato.html">Mais info</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="animal-card" data-type="cachorro">
+            <div class="thumb" style="background-image:url('./assets/dog2.jpg');"></div>
+            <div class="body">
+                <h3>Rex <small style="font-size:0.85rem;color:#999;">• 3 anos</small></h3>
+                <p>Protetor e leal, precisa de espaço e rotina de exercícios.</p>
+                <div class="animal-meta">
+                    <span><i class="fas fa-paw"></i> Porte: Grande</span>
+                    <span><i class="fas fa-venus-mars"></i> Macho</span>
+                </div>
+                <div class="animal-actions">
+                    <a class="btn-adotar" href="contato.html#adotar">Quero adotar</a>
+                    <a class="btn-saber" href="contato.html">Mais info</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="animal-card" data-type="gato">
+            <div class="thumb" style="background-image:url('./assets/cat2.jpeg');"></div>
+            <div class="body">
+                <h3>Mimi <small style="font-size:0.85rem;color:#999;">• 6 meses</small></h3>
+                <p>Brincalhona e curiosa — ótima para família jovem.</p>
+                <div class="animal-meta">
+                    <span><i class="fas fa-paw"></i> Porte: Pequeno</span>
+                    <span><i class="fas fa-venus-mars"></i> Fêmea</span>
+                </div>
+                <div class="animal-actions">
+                    <a class="btn-adotar" href="contato.html#adotar">Quero adotar</a>
+                    <a class="btn-saber" href="contato.html">Mais info</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <p style="text-align:center; margin-top:18px; color:#666;">Não encontrou quem procurava? <a href="contato.html" style="color:var(--verde); font-weight:700;">Fale conosco</a> — podemos avisar quando novos animais chegarem.</p>
+</main>
+
+<footer style="background: #0d5f41; color: #fff; text-align: center; padding: 18px 0; margin: 0;">
+    &copy; 2025 Instituto Integridade Animal.
+</footer>
+
+<script>
+    const search = document.getElementById('search');
+    const type = document.getElementById('type');
+    const grid = document.getElementById('grid');
+    const countEl = document.getElementById('count');
+
+    function update() {
+        const q = search.value.trim().toLowerCase();
+        const t = type.value;
+        const cards = Array.from(grid.querySelectorAll('.animal-card'));
+        let visible = 0;
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            const matchesQ = q === '' || text.includes(q);
+            const matchesT = t === '' || card.dataset.type === t;
+            const show = matchesQ && matchesT;
+            card.style.display = show ? '' : 'none';
+            if (show) visible++;
+        });
+        countEl.textContent = visible + (visible === 1 ? ' animal' : ' animais');
+    }
+
+    search.addEventListener('input', update);
+    type.addEventListener('change', update);
+    update();
+</script>
 </body>
 </html>
