@@ -1,15 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Sobre - Instituto Integridade Animal</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <style>
-        .institucional2{
-            padding-bottom: 48px;
+        :root { --verde:#0d5f41; --verde-esc:#0a4a33; --accent:#f5a623; --bg:#fbfff9; }
+
+        body { background: linear-gradient(180deg,#f6fbf8 0%, #ffffff 45%); }
+
+        .hero-sobre {
+            background: linear-gradient(90deg, rgba(13,95,65,0.92), rgba(10,74,51,0.92)), url('./assets/img02.png') center/cover no-repeat;
+            color: #fff;
+            padding: 56px 20px;
+            text-align: center;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .hero-sobre h1 { font-size:2.2rem; margin-bottom:10px; }
+        .hero-sobre p { max-width:920px; margin:0 auto; opacity:0.96; line-height:1.5; }
+
+        .container { max-width:1100px; margin:32px auto; padding:0 20px; }
+
+        .cards-container {
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            gap:18px;
+            margin-top:20px;
+            align-items:start;
+        }
+
+        .card {
+            background: linear-gradient(180deg,#fff,#fbfff9);
+            border-radius:12px;
+            padding:20px;
+            box-shadow: 0 12px 30px rgba(10,10,10,0.06);
+            transition: transform .16s ease, box-shadow .16s ease;
+            min-height:200px;
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(10,10,10,0.12); }
+
+        .card .icon {
+            width:54px;height:54px;border-radius:10px;background:var(--branco);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;
+        }
+        .card h3 { margin:0; color:var(--verde); font-size:1.15rem; }
+        .card p { color:#444; line-height:1.45; flex:1; }
+
+        .stats {
+            display:flex;
+            gap:12px;
+            margin-top:22px;
+            flex-wrap:wrap;
+        }
+        .stat {
+            background:#fff;border-radius:10px;padding:14px;min-width:140px;box-shadow:0 8px 20px rgba(10,10,10,0.04);
+            display:flex;flex-direction:column;align-items:flex-start;gap:6px;
+        }
+        .stat strong{ font-size:1.4rem; color:var(--verde-esc); }
+        .cta {
+            margin-top:26px;
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+        .btn {
+            padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;
+        }
+        .btn-primary { background:var(--verde); color:#fff; box-shadow:0 8px 20px rgba(13,95,65,0.14); }
+        .btn-outline { background:transparent; border:2px solid var(--verde); color:var(--verde); }
+
+        @media (max-width:720px){
+            .hero-sobre h1{font-size:1.6rem;}
         }
     </style>
 </head>
@@ -30,76 +98,51 @@
         </ul>
     </nav>
 </header>
+
 <div class="space-header"></div>
-<section class="institucional2">
-    <h1>Sobre o Instituto Integridade Animal</h1><br><br>
-    <p style="max-width: 800px; margin: 0 auto; text-align: center; padding: 16px 8px;">
-        O Instituto Integridade Animal é uma organização sem fins lucrativos dedicada à proteção, resgate e reabilitação de animais em situação de vulnerabilidade. Atuamos com amor, responsabilidade e ética, promovendo a conscientização sobre a importância do respeito a todas as formas de vida. Nossa equipe é formada por voluntários apaixonados pela causa animal, que trabalham diariamente para transformar realidades e construir um futuro mais digno para nossos amigos de quatro patas.
-    </p>
-    <br>
-    <div style="padding-bottom: 64px;" class="cards-container">
-        <div class="card">
-            <i class="fas fa-bullseye"></i>
-            <h3>Missão</h3>
-            <p>
-                Promover a proteção e o bem-estar animal, resgatando, cuidando e encontrando lares responsáveis para cães e gatos abandonados ou vítimas de maus-tratos. Buscamos oferecer atendimento veterinário, alimentação adequada e muito carinho, além de atuar na educação da sociedade sobre guarda responsável e direitos dos animais.
-            </p>
-        </div>
-        <div class="card">
-            <i class="fas fa-eye"></i>
-            <h3>Visão</h3>
-            <p>
-                Ser referência em proteção animal, inspirando outras pessoas e organizações a se engajarem na causa. Almejamos construir uma sociedade mais consciente, onde todo animal tenha direito a respeito, dignidade e qualidade de vida, e onde o abandono e os maus-tratos sejam apenas parte do passado.
-            </p>
-        </div>
-        <div class="card">
-            <i class="fas fa-heart"></i>
-            <h3>Valores</h3>
-            <p>
-                Compromisso com a vida, amor incondicional aos animais, ética em todas as ações, responsabilidade social, transparência, respeito à diversidade e à natureza, e trabalho em equipe. Acreditamos que cada gesto de cuidado faz diferença e que juntos podemos transformar o mundo em um lugar melhor para todos os seres vivos.
-            </p>
-        </div>
-    </div>
+
+<section class="hero-sobre" aria-labelledby="sobre-title">
+    <h1 id="sobre-title">Nossa história e propósito</h1>
+    <p>Desde a fundação, atuamos no resgate, cuidado e reabilitação de animais em risco. Trabalhamos com abrigos parceiros, clínicas voluntárias e uma rede de apoiadores para oferecer saúde, abrigo e novas oportunidades aos animais que acolhemos.</p>
 </section>
-<section style="padding: 48px 32px;" class="carrossel">
-    <div style="max-width: 100%; max-height: 100%;" class="slides">
-        <div class="slide active">
-            <img src="./assets/GALPÃO FRENTE.avif" alt="">
-            <div class="overlay"></div>
-            <div class="conteudo">
-            </div>
-        </div>
-        <div class="slide">
-            <img src="./assets/GARAGEM.avif" alt="">
-            <div class="overlay"></div>
-            <div class="conteudo">
-            </div>
-        </div>
-        <div class="slide">
-            <img src="./assets/1ANDAR.avif" alt="">
-            <div class="overlay"></div>
-            <div class="conteudo">
-            </div>
-        </div>
-        <div class="slide">
-            <img src="./assets/2ANDAR.avif" alt="">
-            <div class="overlay"></div>
-            <div class="conteudo">
-            </div>
-        </div>
-        <div class="slide">
-            <img src="./assets/SALA2ANDAR.avif" alt="">
-            <div class="overlay"></div>
-            <div class="conteudo">
-            </div>
-        </div>
+
+<main class="container">
+    <h2 style="color:var(--verde); margin-bottom:6px;">Missão, Visão e Valores</h2>
+
+    <div class="cards-container" role="list">
+        <article class="card" role="listitem" aria-labelledby="missao">
+            <div class="icon"><i class="fas fa-bullseye"></i></div>
+            <h3 id="missao">Missão</h3>
+            <p>Resgatar, tratar e encaminhar animais para adoção responsável; promover bem-estar e educação sobre guarda responsável; articular soluções locais para reduzir abandono e maus-tratos. Atuamos com atendimento veterinário, programas de castração e acompanhamento pós-adoção.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="visao">
+            <div class="icon"><i class="fas fa-eye"></i></div>
+            <h3 id="visao">Visão</h3>
+            <p>Ser referência regional em proteção animal, construindo uma comunidade informada e compassiva, onde políticas públicas e engajamento social assegurem condições dignas para todos os animais.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="valores">
+            <div class="icon"><i class="fas fa-heart"></i></div>
+            <h3 id="valores">Valores</h3>
+            <p>Amor e respeito à vida, transparência, ética, colaboração e responsabilidade. Valorizamos a educação, a ciência aplicada ao bem-estar animal e o trabalho em rede para gerar impacto contínuo.</p>
+        </article>
     </div>
-    <button class="prev"><i class="fas fa-chevron-left"></i></button>
-    <button class="next"><i class="fas fa-chevron-right"></i></button>
-</section>
-<script src="carrossel.js"></script>
-<footer style="background: #0d5f41; color: #fff; text-align: center; padding: 20px 0; margin-top: 40px; margin-bottom: 0;">
+
+    <section style="margin-top:26px;">
+        <h3 style="color:var(--verde);">Como atuamos</h3>
+        <p style="color:#444; line-height:1.6; max-width:920px;">Nossa rotina envolve resgates emergenciais, triagem veterinária, reabilitação comportamental, campanhas de vacinação e castração, além de programas educativos em escolas e comunidades. Priorizamos acompanhamento pós-adoção para garantir a adaptação e o bem-estar dos animais e das famílias.</p>
+    </section>
+
+    <div class="cta">
+        <a class="btn btn-primary" href="como-ajudar.html">Quero ajudar</a>
+        <a class="btn btn-outline" href="adocao.html">Ver animais para adoção</a>
+        <a class="btn btn-outline" href="contato.html">Fale conosco</a>
+    </div>
+</main>
+
+<footer style="background:#0d5f41;color:#fff;text-align:center;padding:18px 0;margin:0;">
     &copy; 2025 Instituto Integridade Animal.
 </footer>
 </body>
-</html> 
+</html>
